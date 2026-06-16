@@ -1,0 +1,49 @@
+/* Performance - rendering hints without visual changes */
+
+picture {
+  display: contents;
+}
+
+.hero-slide__img,
+.destination-card__image,
+.experience-card__image,
+.package-card__img,
+.accommodation-card__image,
+.about__image,
+.dest-page__hero-img,
+.dest-page__figure img {
+  content-visibility: auto;
+}
+
+.section:not(.hero):not(#home) {
+  content-visibility: auto;
+  contain-intrinsic-size: auto 600px;
+}
+
+.destination-card,
+.experience-card,
+.package-card,
+.accommodation-card,
+.testimonial-card {
+  contain: layout style paint;
+}
+
+.hero-swiper .swiper-slide-active .hero-slide__frame {
+  will-change: transform;
+}
+
+.reveal:not(.is-visible),
+.reveal-stagger:not(.is-visible) > * {
+  will-change: transform, opacity;
+}
+
+.reveal.is-visible,
+.reveal-stagger.is-visible > * {
+  will-change: auto;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .hero-swiper .swiper-slide-active .hero-slide__frame {
+    will-change: auto;
+  }
+}
