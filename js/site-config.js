@@ -8,7 +8,7 @@
   window.SITE_CONFIG = {
     businessName: 'Safari and Bush Retreats',
     contactName: 'Ally Shebe',
-    email: 'safaribushretreats@gmail.com',
+    email: 'info@safariandbushretreats.com',
     phoneDisplay: '+255 768 373 033',
     phoneTel: '+255768373033',
     whatsapp: '255768373033',
@@ -16,7 +16,7 @@
     location: 'Tanzania - Nationwide',
     footerCredit: 'Tanzania-wide safari experts - real guides, real bush, no middlemen.',
     // FormSubmit.co - works on static hosting (no backend). Confirm email once after first submission.
-    formSubmitEndpoint: 'https://formsubmit.co/ajax/safaribushretreats@gmail.com'
+    formSubmitEndpoint: 'https://formsubmit.co/ajax/info@safariandbushretreats.com'
   };
 
   window.siteWhatsAppUrl = function siteWhatsAppUrl(customText) {

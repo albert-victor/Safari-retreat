@@ -9,7 +9,7 @@ ROOT = Path(__file__).resolve().parent.parent
 
 # Site contact - inquiries route to Safari & Bush Retreats team
 SITE_OWNER = "Ally Shebe"
-SITE_EMAIL = "safaribushretreats@gmail.com"
+SITE_EMAIL = "info@safariandbushretreats.com"
 SITE_PHONE = "+255 768 373 033"
 SITE_WHATSAPP = "255768373033"
 
@@ -77,21 +77,21 @@ def build_circuit_nav(circuit_prefix: str, dest_prefix: str, kenya_href: str, ug
     ])
     return "\n".join(lines)
 
-SAFARI_CATEGORY_NAV = """              <li><a href="../safaris/index.html" role="menuitem">All Packages</a></li>
-              <li><a href="tanzania-safaris.html" role="menuitem">Tanzania Safaris</a></li>
-              <li><a href="adventure-safaris.html" role="menuitem">Adventure Safaris</a></li>
-              <li><a href="mountain-climbing.html" role="menuitem">Mountain Climbing</a></li>
-              <li><a href="beach-holiday.html" role="menuitem">Beach Holiday</a></li>
-              <li><a href="walking-safaris.html" role="menuitem">Walking Safaris</a></li>
-              <li><a href="tourist-attractions.html" role="menuitem">Tourist Attractions</a></li>"""
+SAFARI_CATEGORY_NAV = """              <li><a href="{prefix}safaris/index.html" role="menuitem">All Packages</a></li>
+              <li><a href="{category_prefix}tanzania-safaris.html" role="menuitem">Tanzania Safaris</a></li>
+              <li><a href="{category_prefix}adventure-safaris.html" role="menuitem">Adventure Safaris</a></li>
+              <li><a href="{category_prefix}mountain-climbing.html" role="menuitem">Mountain Climbing</a></li>
+              <li><a href="{category_prefix}beach-holiday.html" role="menuitem">Beach Holiday</a></li>
+              <li><a href="{category_prefix}walking-safaris.html" role="menuitem">Walking Safaris</a></li>
+              <li><a href="{category_prefix}tourist-attractions.html" role="menuitem">Tourist Attractions</a></li>"""
 
-MOBILE_SAFARI_CATEGORY_NAV = """                <li><a href="../safaris/index.html">All Packages</a></li>
-                <li><a href="tanzania-safaris.html">Tanzania Safaris</a></li>
-                <li><a href="adventure-safaris.html">Adventure Safaris</a></li>
-                <li><a href="mountain-climbing.html">Mountain Climbing</a></li>
-                <li><a href="beach-holiday.html">Beach Holiday</a></li>
-                <li><a href="walking-safaris.html">Walking Safaris</a></li>
-                <li><a href="tourist-attractions.html">Tourist Attractions</a></li>"""
+MOBILE_SAFARI_CATEGORY_NAV = """                <li><a href="{prefix}safaris/index.html">All Packages</a></li>
+                <li><a href="{category_prefix}tanzania-safaris.html">Tanzania Safaris</a></li>
+                <li><a href="{category_prefix}adventure-safaris.html">Adventure Safaris</a></li>
+                <li><a href="{category_prefix}mountain-climbing.html">Mountain Climbing</a></li>
+                <li><a href="{category_prefix}beach-holiday.html">Beach Holiday</a></li>
+                <li><a href="{category_prefix}walking-safaris.html">Walking Safaris</a></li>
+                <li><a href="{category_prefix}tourist-attractions.html">Tourist Attractions</a></li>"""
 
 CIRCUIT_SLUGS = {
     "Northern Circuit": "northern-circuit",
@@ -186,7 +186,7 @@ def nav_html(prefix: str = "../", active: str = "circuits", kenya_active: bool =
           <li class="navbar__item navbar__item--has-dropdown">
             <a href="{prefix}index.html#safaris" class="navbar__link{safaris_active}">Safaris</a>
             <ul class="navbar__dropdown" role="menu">
-{SAFARI_CATEGORY_NAV.replace('href="', f'href="{category_prefix}')}
+{SAFARI_CATEGORY_NAV.format(prefix=prefix, category_prefix=category_prefix)}
             </ul>
           </li>
           <li><a href="{prefix}index.html#accommodation" class="navbar__link{accommodation_active}">Accommodation</a></li>
@@ -247,7 +247,7 @@ def nav_html(prefix: str = "../", active: str = "circuits", kenya_active: bool =
             <div class="mobile-menu__dest-panel" id="mobileSafariPanel">
               <a href="{prefix}safaris/index.html" class="mobile-menu__dest-overview">All safari packages</a>
               <ul class="mobile-menu__dest-grid">
-{MOBILE_SAFARI_CATEGORY_NAV.replace('href="', f'href="{category_prefix}')}
+{MOBILE_SAFARI_CATEGORY_NAV.format(prefix=prefix, category_prefix=category_prefix)}
               </ul>
             </div>
           </li>
@@ -310,7 +310,8 @@ def head_block(title: str, description: str, css_prefix: str) -> str:
   <link rel="stylesheet" href="{css_prefix}css/style.css">
   <link rel="stylesheet" href="{css_prefix}css/responsive.css">
   <link rel="stylesheet" href="{css_prefix}css/theme.css">
-  <link rel="stylesheet" href="{css_prefix}css/destination-page.css">"""
+  <link rel="stylesheet" href="{css_prefix}css/destination-page.css">
+  <link rel="stylesheet" href="{css_prefix}css/performance.css">"""
 
 
 def dest_tags(d: dict) -> list[str]:

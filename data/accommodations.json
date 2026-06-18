@@ -72,7 +72,12 @@
       "destinationSlug": "serengeti",
       "shortDescription": "Iconic ultra-luxury lodges and private villas on vast private concessions along the western Serengeti corridor.",
       "description": "Singita Grumeti offers an unrivalled standard of safari hospitality across exclusive-use lodges, tented camps and private villas on a 350,000-acre private concession adjoining Serengeti National Park. Expect refined interiors, private guides, wellness spas and front-row seats to the Great Migration without the crowds.",
-      "image": "external/accommodations/singita.jpg",
+      "image": "singita-main.jpg",
+      "gallery": [
+        "singita1.jpg",
+        "singita2.jpg",
+        "singita3.jpg"
+      ],
       "imageSourceUrl": "https://singita.com/",
       "officialWebsite": "https://singita.com/",
       "amenities": [

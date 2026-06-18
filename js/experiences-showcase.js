@@ -4,7 +4,7 @@
 (function () {
   'use strict';
 
-  const AUTOPLAY_MS = 2800;
+  const AUTOPLAY_MS = 5500;
   const TAB_ICONS_PER_PAGE = 10;
 
   let experiences = [];
@@ -117,8 +117,8 @@
       window.setTimeout(() => {
         cardEl.classList.remove('exp-showcase__card--entering');
         isAnimating = false;
-      }, 520);
-    }, 280);
+      }, 420);
+    }, 300);
   }
 
   function bindTabClicks(root) {
@@ -236,6 +236,8 @@
     }
 
     if (!experiences.length) return;
+
+    document.documentElement.style.setProperty('--exp-autoplay-ms', AUTOPLAY_MS + 'ms');
 
     const track = rootEl.querySelector('#expShowcaseTrack');
     if (track) {

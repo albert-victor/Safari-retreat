@@ -65,6 +65,106 @@
     ],
     "srcset": "assets/images/opt/about-picture1-480.webp 480w, assets/images/opt/about-picture1-800.webp 800w, assets/images/opt/about-picture1-1080.webp 1080w"
   },
+  "assets/images/about-main-image.jpg": {
+    "source": "assets/images/about-main-image.jpg",
+    "slug": "about-main-image",
+    "variants": [
+      {
+        "url": "assets/images/opt/about-main-image-480.webp",
+        "width": 480,
+        "bytes": 66266
+      },
+      {
+        "url": "assets/images/opt/about-main-image-800.webp",
+        "width": 800,
+        "bytes": 145776
+      },
+      {
+        "url": "assets/images/opt/about-main-image-810.webp",
+        "width": 810,
+        "bytes": 149446
+      }
+    ],
+    "srcset": "assets/images/opt/about-main-image-480.webp 480w, assets/images/opt/about-main-image-800.webp 800w, assets/images/opt/about-main-image-810.webp 810w"
+  },
+  "assets/images/about-main-pic.jpg": {
+    "source": "assets/images/about-main-pic.jpg",
+    "slug": "about-main-pic",
+    "variants": [
+      {
+        "url": "assets/images/opt/about-main-pic-480.webp",
+        "width": 480,
+        "bytes": 98072
+      },
+      {
+        "url": "assets/images/opt/about-main-pic-800.webp",
+        "width": 800,
+        "bytes": 248930
+      },
+      {
+        "url": "assets/images/opt/about-main-pic-810.webp",
+        "width": 810,
+        "bytes": 262346
+      }
+    ],
+    "srcset": "assets/images/opt/about-main-pic-480.webp 480w, assets/images/opt/about-main-pic-800.webp 800w, assets/images/opt/about-main-pic-810.webp 810w"
+  },
+  "assets/images/about-main-pictures.jpg": {
+    "source": "assets/images/about-main-pictures.jpg",
+    "slug": "about-main-pictures",
+    "variants": [
+      {
+        "url": "assets/images/opt/about-main-pictures-471.webp",
+        "width": 471,
+        "bytes": 43568
+      }
+    ],
+    "srcset": "assets/images/opt/about-main-pictures-471.webp 471w"
+  },
+  "assets/images/about-picture.jpg": {
+    "source": "assets/images/about-picture.jpg",
+    "slug": "about-picture",
+    "variants": [
+      {
+        "url": "assets/images/opt/about-picture-480.webp",
+        "width": 480,
+        "bytes": 35280
+      },
+      {
+        "url": "assets/images/opt/about-picture-800.webp",
+        "width": 800,
+        "bytes": 87362
+      },
+      {
+        "url": "assets/images/opt/about-picture-1080.webp",
+        "width": 1080,
+        "bytes": 150984
+      }
+    ],
+    "srcset": "assets/images/opt/about-picture-480.webp 480w, assets/images/opt/about-picture-800.webp 800w, assets/images/opt/about-picture-1080.webp 1080w"
+  },
+  "assets/images/about-picture1.jpg": {
+    "source": "assets/images/about-picture1.jpg",
+    "slug": "about-picture1",
+    "variants": [
+      {
+        "url": "assets/images/opt/about-picture1-480.webp",
+        "width": 480,
+        "bytes": 22838
+      },
+      {
+        "url": "assets/images/opt/about-picture1-800.webp",
+        "width": 800,
+        "bytes": 39852
+      },
+      {
+        "url": "assets/images/opt/about-picture1-1080.webp",
+        "width": 1080,
+        "bytes": 56042
+      }
+    ],
+    "srcset": "assets/images/opt/about-picture1-480.webp 480w, assets/images/opt/about-picture1-800.webp 800w, assets/images/opt/about-picture1-1080.webp 1080w"
+  },
   "assets/images/about.jpg": {
     "source": "assets/images/about.jpg",
     "slug": "about",
@@ -121,7 +221,7 @@
       {
         "url": "assets/images/opt/apple-touch-icon-180.webp",
         "width": 180,
-        "bytes": 3856
+        "bytes": 3236
       }
     ],
     "srcset": "assets/images/opt/apple-touch-icon-180.webp 180w"
@@ -9069,12 +9169,12 @@
     "slug": "favicon",
     "variants": [
       {
-        "url": "assets/images/opt/favicon-64.webp",
-        "width": 64,
-        "bytes": 1134
+        "url": "assets/images/opt/favicon-32.webp",
+        "width": 32,
+        "bytes": 476
       }
     ],
-    "srcset": "assets/images/opt/favicon-64.webp 64w"
+    "srcset": "assets/images/opt/favicon-32.webp 32w"
   },
   "assets/images/Gangilonga_Rock_Iringa_3.jpg": {
     "source": "assets/images/Gangilonga_Rock_Iringa_3.jpg",
@@ -10100,6 +10200,18 @@
     ],
     "srcset": "assets/images/opt/park-480.webp 480w, assets/images/opt/park-540.webp 540w"
   },
+  "assets/images/pemba-island.jpg": {
+    "source": "assets/images/pemba-island.jpg",
+    "slug": "pemba-island",
+    "variants": [
+      {
+        "url": "assets/images/opt/pemba-island-266.webp",
+        "width": 266,
+        "bytes": 9052
+      }
+    ],
+    "srcset": "assets/images/opt/pemba-island-266.webp 266w"
+  },
   "assets/images/pexels-maasai-magic-3752887-5574087.jpg": {
     "source": "assets/images/pexels-maasai-magic-3752887-5574087.jpg",
     "slug": "pexels-maasai-magic-3752887-5574087",
@@ -10153,6 +10265,40 @@
       }
     ],
     "srcset": "assets/images/opt/pexels-wussol-2147803031-30894532-480.webp 480w, assets/images/opt/pexels-wussol-2147803031-30894532-800.webp 800w, assets/images/opt/pexels-wussol-2147803031-30894532-1200.webp 1200w, assets/images/opt/pexels-wussol-2147803031-30894532-1920.webp 1920w"
+  },
+  "assets/images/prison-island-alt.jpg": {
+    "source": "assets/images/prison-island-alt.jpg",
+    "slug": "prison-island-alt",
+    "variants": [
+      {
+        "url": "assets/images/opt/prison-island-alt-225.webp",
+        "width": 225,
+        "bytes": 12020
+      }
+    ],
+    "srcset": "assets/images/opt/prison-island-alt-225.webp 225w"
+  },
+  "assets/images/prison-island.jpg": {
+    "source": "assets/images/prison-island.jpg",
+    "slug": "prison-island",
+    "variants": [
+      {
+        "url": "assets/images/opt/prison-island-480.webp",
+        "width": 480,
+        "bytes": 36590
+      },
+      {
+        "url": "assets/images/opt/prison-island-800.webp",
+        "width": 800,
+        "bytes": 87780
+      },
+      {
+        "url": "assets/images/opt/prison-island-950.webp",
+        "width": 950,
+        "bytes": 115466
+      }
+    ],
+    "srcset": "assets/images/opt/prison-island-480.webp 480w, assets/images/opt/prison-island-800.webp 800w, assets/images/opt/prison-island-950.webp 950w"
   },
   "assets/images/ruaha-ruaha-national-park-tanzania.jpeg": {
     "source": "assets/images/ruaha-ruaha-national-park-tanzania.jpeg",
@@ -10224,6 +10370,18 @@
       }
     ],
     "srcset": "assets/images/opt/ruins_of_old_port_in_bagamoyo_02-480.webp 480w, assets/images/opt/ruins_of_old_port_in_bagamoyo_02-800.webp 800w, assets/images/opt/ruins_of_old_port_in_bagamoyo_02-1200.webp 1200w, assets/images/opt/ruins_of_old_port_in_bagamoyo_02-1600.webp 1600w"
+  },
+  "assets/images/scuba-diving-zanzibar.jpg": {
+    "source": "assets/images/scuba-diving-zanzibar.jpg",
+    "slug": "scuba-diving-zanzibar",
+    "variants": [
+      {
+        "url": "assets/images/opt/scuba-diving-zanzibar-276.webp",
+        "width": 276,
+        "bytes": 10728
+      }
+    ],
+    "srcset": "assets/images/opt/scuba-diving-zanzibar-276.webp 276w"
   },
   "assets/images/Serengeti-National-Park-1-1.jpg": {
     "source": "assets/images/Serengeti-National-Park-1-1.jpg",
@@ -10305,6 +10463,79 @@
       }
     ],
     "srcset": "assets/images/opt/serengeti3-480.webp 480w, assets/images/opt/serengeti3-800.webp 800w, assets/images/opt/serengeti3-1200.webp 1200w, assets/images/opt/serengeti3-1920.webp 1920w"
+  },
+  "assets/images/singita-main.jpg": {
+    "source": "assets/images/singita-main.jpg",
+    "slug": "singita-main",
+    "variants": [
+      {
+        "url": "assets/images/opt/singita-main-480.webp",
+        "width": 480,
+        "bytes": 30244
+      },
+      {
+        "url": "assets/images/opt/singita-main-739.webp",
+        "width": 739,
+        "bytes": 68324
+      }
+    ],
+    "srcset": "assets/images/opt/singita-main-480.webp 480w, assets/images/opt/singita-main-739.webp 739w"
+  },
+  "assets/images/singita1.jpg": {
+    "source": "assets/images/singita1.jpg",
+    "slug": "singita1",
+    "variants": [
+      {
+        "url": "assets/images/opt/singita1-480.webp",
+        "width": 480,
+        "bytes": 35602
+      },
+      {
+        "url": "assets/images/opt/singita1-698.webp",
+        "width": 698,
+        "bytes": 75810
+      }
+    ],
+    "srcset": "assets/images/opt/singita1-480.webp 480w, assets/images/opt/singita1-698.webp 698w"
+  },
+  "assets/images/singita2.jpg": {
+    "source": "assets/images/singita2.jpg",
+    "slug": "singita2",
+    "variants": [
+      {
+        "url": "assets/images/opt/singita2-480.webp",
+        "width": 480,
+        "bytes": 38676
+      },
+      {
+        "url": "assets/images/opt/singita2-800.webp",
+        "width": 800,
+        "bytes": 92252
+      },
+      {
+        "url": "assets/images/opt/singita2-930.webp",
+        "width": 930,
+        "bytes": 121154
+      }
+    ],
+    "srcset": "assets/images/opt/singita2-480.webp 480w, assets/images/opt/singita2-800.webp 800w, assets/images/opt/singita2-930.webp 930w"
+  },
+  "assets/images/singita3.jpg": {
+    "source": "assets/images/singita3.jpg",
+    "slug": "singita3",
+    "variants": [
+      {
+        "url": "assets/images/opt/singita3-480.webp",
+        "width": 480,
+        "bytes": 37298
+      },
+      {
+        "url": "assets/images/opt/singita3-557.webp",
+        "width": 557,
+        "bytes": 49172
+      }
+    ],
+    "srcset": "assets/images/opt/singita3-480.webp 480w, assets/images/opt/singita3-557.webp 557w"
   },
   "assets/images/sli.jpg": {
     "source": "assets/images/sli.jpg",
@@ -10604,5 +10835,49 @@
       }
     ],
     "srcset": "assets/images/opt/zebras-480.webp 480w, assets/images/opt/zebras-800.webp 800w, assets/images/opt/zebras-1200.webp 1200w, assets/images/opt/zebras-1920.webp 1920w"
+  },
+  "assets/images/slideshow-main.png": {
+    "source": "assets/images/slideshow-main.png",
+    "slug": "slideshow-main",
+    "variants": [
+      {
+        "url": "assets/images/opt/slideshow-main-480.webp",
+        "width": 480,
+        "bytes": 38276
+      },
+      {
+        "url": "assets/images/opt/slideshow-main-800.webp",
+        "width": 800,
+        "bytes": 94130
+      },
+      {
+        "url": "assets/images/opt/slideshow-main-1200.webp",
+        "width": 1200,
+        "bytes": 169260
+      },
+      {
+        "url": "assets/images/opt/slideshow-main-1537.webp",
+        "width": 1537,
+        "bytes": 230090
+      }
+    ],
+    "srcset": "assets/images/opt/slideshow-main-480.webp 480w, assets/images/opt/slideshow-main-800.webp 800w, assets/images/opt/slideshow-main-1200.webp 1200w, assets/images/opt/slideshow-main-1537.webp 1537w"
+  },
+  "assets/images/external/accommodations/porini-camps.jpg": {
+    "source": "assets/images/external/accommodations/porini-camps.jpg",
+    "slug": "porini-camps",
+    "variants": [
+      {
+        "url": "assets/images/opt/porini-camps-480.webp",
+        "width": 480,
+        "bytes": 25712
+      },
+      {
+        "url": "assets/images/opt/porini-camps-739.webp",
+        "width": 739,
+        "bytes": 57454
+      }
+    ],
+    "srcset": "assets/images/opt/porini-camps-480.webp 480w, assets/images/opt/porini-camps-739.webp 739w"
   }
 }

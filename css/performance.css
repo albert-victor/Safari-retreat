@@ -47,3 +47,54 @@ picture {
     will-change: auto;
   }
 }
+
+/* Prevent horizontal page scroll on mobile */
+html {
+  overflow-x: clip;
+}
+
+body {
+  overflow-x: clip;
+  width: 100%;
+  max-width: 100%;
+}
+
+#main-content {
+  max-width: 100%;
+  overflow-x: clip;
+}
+
+.destinations,
+.testimonials,
+.experiences,
+.gallery,
+.hero {
+  max-width: 100%;
+  overflow-x: clip;
+}
+
+.destinations__slider-wrap,
+.testimonials__slider-wrap,
+.experiences__slider-wrap {
+  max-width: 100%;
+  overflow-x: clip;
+}
+
+.container,
+.dest-page__layout,
+.package-card,
+.destination-card,
+.accommodation-card,
+.circuit-dest-card,
+.circuit-dest-card__link,
+.exp-showcase {
+  min-width: 0;
+}
+
+.dest-page__copy p,
+.circuit-dest-card__desc,
+.package-card__title,
+.testimonial-card__quote,
+.review-platform-link span {
+  overflow-wrap: anywhere;
+}

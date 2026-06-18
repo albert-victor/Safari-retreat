@@ -306,10 +306,11 @@
     -webkit-overflow-scrolling: touch;
     scrollbar-width: none;
     padding-bottom: var(--space-sm);
-    margin-inline: calc(var(--space-lg) * -1);
-    padding-inline: var(--space-lg);
+    margin-inline: 0;
+    padding-inline: 0;
     position: static;
     background: transparent;
+    max-width: 100%;
   }
 
   .gallery__filters::-webkit-scrollbar {

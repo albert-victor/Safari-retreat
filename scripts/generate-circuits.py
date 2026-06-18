@@ -86,7 +86,7 @@ def build_circuit_page(
     if back_href and back_label:
         back_link = f'          <a href="{back_href}" class="dest-page__back"><i class="fa-solid fa-arrow-left" aria-hidden="true"></i> {back_label}</a>\n'
     else:
-        back_link = '          <a href="/circuits/index.html" class="dest-page__back"><i class="fa-solid fa-arrow-left" aria-hidden="true"></i> All Circuits</a>\n'
+        back_link = '          <a href="index.html" class="dest-page__back"><i class="fa-solid fa-arrow-left" aria-hidden="true"></i> All Circuits</a>\n'
     tour_count = len(packages or [])
     tour_meta = f" · {tour_count} tour{'s' if tour_count != 1 else ''}" if tour_count else ""
     pkg_section = ""

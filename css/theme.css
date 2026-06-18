@@ -461,8 +461,10 @@ body {
   color: var(--primary-gold-dark);
 }
 
-[data-theme="light"] .testimonials__rating p { color: var(--text-secondary); }
-[data-theme="light"] .testimonials__rating strong { color: var(--primary-gold-dark); }
+[data-theme="light"] .testimonials__rating-score { color: var(--text-heading); }
+[data-theme="light"] .testimonials__rating-number { color: var(--primary-gold-dark); }
+[data-theme="light"] .testimonials__rating-source,
+[data-theme="light"] .testimonials__rating-max { color: var(--text-secondary); }
 
 [data-theme="light"] .review-platform-link {
   color: var(--primary-gold-dark);

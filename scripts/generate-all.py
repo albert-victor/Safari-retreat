@@ -38,6 +38,7 @@ SCRIPTS = [
     "mirror-external-assets.py",
     "normalize-dashes.py",
     "fix-content-pollution.py",
+    "patch-nav-paths.py",
     "patch-gtm.py",
 ]
 

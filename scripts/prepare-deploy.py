@@ -12,6 +12,7 @@ from pathlib import Path
 ROOT = Path(__file__).resolve().parent.parent
 
 STEPS = [
+    ("Setup deploy assets (favicon, branded images)", "setup-deploy-assets.py"),
     ("Regenerate all tourism pages", "generate-all.py"),
     ("Optimize images (WebP)", "optimize-images.py"),
     ("Enhance HTML with responsive images", "enhance-html-images.py"),

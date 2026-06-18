@@ -28,18 +28,42 @@ def amenities_section(amenities: list) -> str:
 """
 
 
+KENYA_DEST_SLUGS = frozenset({
+    "masai-mara", "amboseli", "diani-beach", "lake-naivasha", "lake-nakuru", "samburu",
+})
+
+
 def destination_link(group: dict, prefix: str) -> str:
     slug = group.get("destinationSlug")
     name = group.get("destination", "")
     if not slug or not name:
         return ""
+    if slug in KENYA_DEST_SLUGS:
+        href = f"{prefix}kenya/{slug}.html"
+    else:
+        href = f"{prefix}destinations/{slug}.html"
     return f"""          <div class="circuit-page__section">
             <h2 class="circuit-page__heading">Related Destination</h2>
             <p>Explore the wilderness surrounding this property.</p>
-            <a href="{prefix}destinations/{slug}.html" class="btn btn--outline btn--sm">
+            <a href="{href}" class="btn btn--outline btn--sm">
               <i class="fa-solid fa-location-dot" aria-hidden="true"></i> {name}
             </a>
           </div>
+"""
+
+
+def gallery_section(images: list[str], prefix: str, name: str) -> str:
+    if not images:
+        return ""
+    figures = ""
+    for img in images:
+        src = pt.img_src(img, prefix)
+        figures += f"""          <figure class="dest-page__figure">
+            <img src="{src}" alt="{name}" loading="lazy" decoding="async" width="600" height="400" referrerpolicy="no-referrer">
+          </figure>
+"""
+    return f"""          <div class="dest-page__gallery">
+{figures}          </div>
 """
 
 
@@ -48,6 +72,7 @@ def build_page(group: dict) -> str:
     desc = group.get("description", group.get("shortDescription", ""))
     meta = f'{group.get("location", "")} · {group.get("country", "")} · {group.get("category", "")}'
     amenities = amenities_section(group.get("amenities", []))
+    gallery = gallery_section(group.get("gallery", []), "../", group["name"])
     destination = destination_link(group, "../")
     website = group.get("officialWebsite", "#")
     category_slug = group.get("categorySlug", "")
@@ -79,7 +104,7 @@ def build_page(group: dict) -> str:
           <div class="dest-page__copy">
             <p>{desc}</p>
           </div>
-{amenities}{destination}          <div class="dest-page__cta">
+{amenities}{gallery}{destination}          <div class="dest-page__cta">
             <p>Plan your stay with {group['name']} through Safari &amp; Bush Retreats.</p>
             <a href="{website}" class="btn btn--primary btn--lg" target="_blank" rel="noopener noreferrer">
               Visit Official Website <i class="fa-solid fa-arrow-up-right-from-square" aria-hidden="true"></i>

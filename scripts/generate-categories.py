@@ -167,7 +167,7 @@ def build_circuits_index(dest_by_slug: dict, dest_count: int) -> str:
         if not hero:
             hero = pt.img_src("nature.jpg", "../")
         cards += f"""            <article class="circuit-dest-card">
-              <a href="/circuits/{slug}.html" class="circuit-dest-card__link">
+              <a href="{slug}.html" class="circuit-dest-card__link">
                 <div class="circuit-dest-card__img-wrap">
                   <img src="{hero}" alt="{name}" loading="lazy" decoding="async" width="400" height="260" referrerpolicy="no-referrer">
                 </div>

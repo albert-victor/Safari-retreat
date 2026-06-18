@@ -10,4 +10,4 @@ Disallow: /data/
 Disallow: /404.html
 
 # Sitemap
-Sitemap: https://safaribushretreats.com/sitemap.xml
+Sitemap: https://safariandbushretreats.com/sitemap.xml

@@ -11,7 +11,7 @@ SKIP_DIRS = {"scripts", "vendor", "node_modules", "data"}
 # Allowed external patterns (outbound links / SEO / form submit - not page assets)
 ALLOW = (
     "schema.org",
-    "safaribushretreats.com",
+    "safariandbushretreats.com",
     "wa.me/",
     "tripadvisor.com",
     "safaribookings.com",

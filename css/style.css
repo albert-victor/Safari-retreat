@@ -2845,6 +2845,7 @@ body.search-open {
   position: relative;
   max-width: 500px;
   width: 100%;
+  overflow: hidden;
 }
 
 .about__image {
@@ -3213,19 +3214,39 @@ select.form-input option:checked {
 }
 
 .testimonials__stars {
-  font-size: 1.5rem;
+  font-size: 1.25rem;
   color: var(--primary-gold);
-  letter-spacing: 0.15em;
+  letter-spacing: 0.12em;
   margin-bottom: var(--space-sm);
 }
 
-.testimonials__rating p {
-  font-size: 0.9375rem;
-  color: var(--text-secondary);
+.testimonials__rating-score {
+  font-family: var(--font-display);
+  font-size: clamp(1.625rem, 4.5vw, 2.125rem);
+  font-weight: 600;
+  line-height: 1.15;
+  color: var(--text-heading);
+  margin-bottom: 0.4rem;
 }
 
-.testimonials__rating strong {
+.testimonials__rating-number {
   color: var(--primary-gold-light);
+}
+
+.testimonials__rating-max {
+  font-size: 0.72em;
+  font-weight: 500;
+  color: var(--text-muted);
+  margin-left: 0.1em;
+}
+
+.testimonials__rating-source {
+  font-size: 0.8125rem;
+  line-height: 1.55;
+  color: var(--text-muted);
+  letter-spacing: 0.015em;
+  max-width: 34rem;
+  margin-inline: auto;
 }
 
 .testimonials__platforms,
@@ -3752,22 +3773,22 @@ select.form-input option:checked {
   border: 1px solid rgba(198, 161, 91, 0.22);
   background: var(--bg-card);
   box-shadow: var(--shadow-elevated);
-  transition: opacity 0.28s ease, transform 0.28s ease;
+  transition: opacity 0.32s ease, transform 0.32s ease;
 }
 
 .exp-showcase__card--leaving {
   opacity: 0;
-  transform: translateX(-18px);
+  transform: translateX(-14px);
 }
 
 .exp-showcase__card--entering {
-  animation: expShowcaseIn 0.52s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+  animation: expShowcaseIn 0.42s cubic-bezier(0.16, 1, 0.3, 1) forwards;
 }
 
 @keyframes expShowcaseIn {
   from {
     opacity: 0;
-    transform: translateX(22px);
+    transform: translateX(16px);
   }
   to {
     opacity: 1;
@@ -3788,7 +3809,7 @@ select.form-input option:checked {
   height: 100%;
   width: 0;
   background: linear-gradient(90deg, var(--primary-gold-dark), var(--primary-gold-light));
-  animation: expShowcaseProgress 4.5s linear infinite;
+  animation: expShowcaseProgress var(--exp-autoplay-ms, 5.5s) linear infinite;
 }
 
 @keyframes expShowcaseProgress {

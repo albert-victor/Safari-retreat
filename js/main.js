@@ -1277,7 +1277,7 @@
       const btnText = btn.querySelector('.contact__submit-text');
       const btnLoading = btn.querySelector('.contact__submit-loading');
       const success = document.getElementById('formSuccess');
-      const cfg = window.SITE_CONFIG || { email: 'safaribushretreats@gmail.com', businessName: 'Safari and Bush Retreats' };
+      const cfg = window.SITE_CONFIG || { email: 'info@safariandbushretreats.com', businessName: 'Safari and Bush Retreats' };
       const data = new FormData(form);
 
       const name = (data.get('name') || '').toString().trim();

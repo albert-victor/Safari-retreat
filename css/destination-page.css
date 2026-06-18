@@ -260,6 +260,22 @@
 }
 
 @media (max-width: 767px) {
+  .dest-page,
+  .dest-page__body,
+  .dest-page__layout,
+  .circuit-page__section,
+  .about-page,
+  .about-page__story-grid,
+  .about-gallery__grid {
+    max-width: 100%;
+    overflow-x: clip;
+  }
+
+  .circuit-dest-card__title,
+  .circuit-page__package-title {
+    overflow-wrap: anywhere;
+  }
+
   [data-theme="light"] .dest-page__hero-img {
     filter: sepia(0.03) saturate(1.12) contrast(1.02) brightness(1.04);
   }
