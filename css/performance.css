@@ -98,3 +98,12 @@ body {
 .review-platform-link span {
   overflow-wrap: anywhere;
 }
+
+/* Prevent flash-to-top when landing with hash from another page */
+html.sbr-hash-nav:not(.sbr-hash-ready) body {
+  visibility: hidden;
+}
+
+html.sbr-hash-ready body {
+  visibility: visible;
+}

@@ -1160,6 +1160,45 @@ body.search-open {
   will-change: transform;
 }
 
+.hero-slide--lead .hero-slide__frame {
+  transform: scale(1);
+}
+
+.hero-slide--lead .hero-slide__img {
+  filter: sepia(0.04) saturate(1.14) contrast(1.04) brightness(0.98);
+  object-position: center 40%;
+}
+
+.hero-slide--lead .hero-slide__gold-wash {
+  opacity: 0.82;
+}
+
+.hero-slide--lead .hero-slide__shade {
+  background: linear-gradient(
+    180deg,
+    rgba(15, 17, 21, 0.08) 0%,
+    rgba(15, 17, 21, 0.04) 40%,
+    rgba(15, 17, 21, 0.26) 100%
+  );
+}
+
+[data-theme="light"] .hero-slide--lead .hero-slide__img {
+  filter: sepia(0.04) saturate(1.14) contrast(1.04) brightness(1);
+}
+
+[data-theme="light"] .hero-slide--lead .hero-slide__gold-wash {
+  opacity: 0.84;
+}
+
+[data-theme="light"] .hero-slide--lead .hero-slide__shade {
+  background: linear-gradient(
+    180deg,
+    rgba(15, 17, 21, 0.06) 0%,
+    rgba(15, 17, 21, 0.03) 40%,
+    rgba(15, 17, 21, 0.24) 100%
+  );
+}
+
 .hero-swiper .swiper-slide-active .hero-slide__frame {
   transform: scale(1);
 }
@@ -1219,7 +1258,7 @@ body.search-open {
   height: 100%;
   object-fit: cover;
   object-position: center;
-  filter: sepia(0.12) saturate(1.22) contrast(1.07) brightness(0.84);
+  filter: sepia(0.06) saturate(1.18) contrast(1.04) brightness(0.97);
   will-change: filter;
   transition: filter 0.65s ease;
 }
@@ -1228,9 +1267,9 @@ body.search-open {
   position: absolute;
   inset: 0;
   background:
-    radial-gradient(ellipse 80% 60% at 20% 15%, rgba(198, 161, 91, 0.42) 0%, transparent 55%),
-    linear-gradient(160deg, rgba(217, 200, 162, 0.18) 0%, transparent 45%),
-    linear-gradient(to top, rgba(198, 161, 91, 0.14) 0%, transparent 35%);
+    radial-gradient(ellipse 80% 60% at 20% 15%, rgba(198, 161, 91, 0.48) 0%, transparent 55%),
+    linear-gradient(160deg, rgba(217, 200, 162, 0.22) 0%, transparent 45%),
+    linear-gradient(to top, rgba(198, 161, 91, 0.18) 0%, transparent 35%);
   mix-blend-mode: soft-light;
   pointer-events: none;
   transition: background 2s cubic-bezier(0.25, 0.46, 0.45, 0.94), opacity 2s cubic-bezier(0.25, 0.46, 0.45, 0.94);
@@ -1241,9 +1280,9 @@ body.search-open {
   inset: 0;
   background: linear-gradient(
     180deg,
-    rgba(15, 17, 21, 0.25) 0%,
-    rgba(15, 17, 21, 0.15) 40%,
-    rgba(15, 17, 21, 0.55) 100%
+    rgba(15, 17, 21, 0.1) 0%,
+    rgba(15, 17, 21, 0.05) 40%,
+    rgba(15, 17, 21, 0.3) 100%
   );
   pointer-events: none;
   transition: background 0.65s ease;
@@ -1260,9 +1299,9 @@ body.search-open {
 .hero-slide--warm .hero-slide__shade {
   background: linear-gradient(
     180deg,
-    rgba(15, 17, 21, 0.34) 0%,
-    rgba(15, 17, 21, 0.18) 42%,
-    rgba(15, 17, 21, 0.6) 100%
+    rgba(15, 17, 21, 0.14) 0%,
+    rgba(15, 17, 21, 0.08) 42%,
+    rgba(15, 17, 21, 0.34) 100%
   );
 }
 
@@ -1380,12 +1419,12 @@ body.search-open {
   inset: 0;
   z-index: 1;
   background:
-    radial-gradient(ellipse 70% 50% at 75% 80%, rgba(198, 161, 91, 0.12) 0%, transparent 60%),
+    radial-gradient(ellipse 70% 50% at 75% 80%, rgba(198, 161, 91, 0.2) 0%, transparent 60%),
     linear-gradient(
       180deg,
-      rgba(15, 17, 21, 0.35) 0%,
-      rgba(15, 17, 21, 0.2) 35%,
-      rgba(15, 17, 21, 0.65) 100%
+      rgba(15, 17, 21, 0.14) 0%,
+      rgba(15, 17, 21, 0.07) 35%,
+      rgba(15, 17, 21, 0.34) 100%
     );
   pointer-events: none;
   transition: background 0.65s ease;
@@ -1396,9 +1435,9 @@ body.search-open {
   inset: 0;
   z-index: 2;
   background:
-    linear-gradient(135deg, rgba(198, 161, 91, 0.14) 0%, transparent 42%),
-    linear-gradient(225deg, rgba(27, 58, 47, 0.12) 0%, transparent 50%),
-    linear-gradient(to top, rgba(217, 200, 162, 0.06) 0%, transparent 30%);
+    linear-gradient(135deg, rgba(198, 161, 91, 0.18) 0%, transparent 42%),
+    linear-gradient(225deg, rgba(27, 58, 47, 0.08) 0%, transparent 50%),
+    linear-gradient(to top, rgba(217, 200, 162, 0.1) 0%, transparent 30%);
   mix-blend-mode: overlay;
   pointer-events: none;
   transition: background 2s cubic-bezier(0.25, 0.46, 0.45, 0.94), opacity 2s cubic-bezier(0.25, 0.46, 0.45, 0.94);
@@ -1408,7 +1447,7 @@ body.search-open {
   position: absolute;
   inset: 0;
   z-index: 2;
-  box-shadow: inset 0 0 120px rgba(15, 17, 21, 0.55);
+  box-shadow: inset 0 0 90px rgba(15, 17, 21, 0.22);
   pointer-events: none;
   transition: box-shadow 0.65s ease;
 }
@@ -1421,12 +1460,12 @@ body.search-open {
   pointer-events: none;
   background: linear-gradient(
     105deg,
-    rgba(15, 17, 21, 0.74) 0%,
-    rgba(15, 17, 21, 0.64) 14%,
-    rgba(15, 17, 21, 0.46) 26%,
-    rgba(15, 17, 21, 0.27) 38%,
-    rgba(15, 17, 21, 0.12) 50%,
-    rgba(15, 17, 21, 0.04) 62%,
+    rgba(15, 17, 21, 0.48) 0%,
+    rgba(15, 17, 21, 0.38) 14%,
+    rgba(15, 17, 21, 0.24) 26%,
+    rgba(15, 17, 21, 0.14) 38%,
+    rgba(15, 17, 21, 0.06) 50%,
+    rgba(15, 17, 21, 0.02) 62%,
     transparent 76%
   );
   transition: background 0.65s ease;
@@ -1471,6 +1510,7 @@ body.search-open {
   font-weight: 700;
   line-height: 1.12;
   margin-bottom: var(--space-lg);
+  color: var(--white);
   text-shadow: 0 2px 24px rgba(0, 0, 0, 0.5);
   letter-spacing: -0.01em;
 }
@@ -2533,9 +2573,9 @@ body.search-open {
   position: absolute;
   inset: 0;
   background:
-    linear-gradient(135deg, rgba(198, 161, 91, 0.15) 0%, transparent 50%),
-    linear-gradient(to top, rgba(15, 17, 21, 0.5) 0%, transparent 60%);
-  opacity: 0.6;
+    linear-gradient(135deg, rgba(198, 161, 91, 0.18) 0%, transparent 50%),
+    linear-gradient(to top, rgba(15, 17, 21, 0.38) 0%, transparent 60%);
+  opacity: 0.55;
   transition: opacity var(--transition-base);
 }
 
@@ -2674,6 +2714,37 @@ body.search-open {
   background: var(--card-gold-overlay);
   mix-blend-mode: soft-light;
   border-radius: inherit;
+}
+
+/* About page - subtle golden grade (matches gallery / experience cards) */
+.about-page__media,
+.about-gallery__frame {
+  isolation: isolate;
+}
+
+.about-page__media .card-golden-overlay,
+.about-gallery__frame .card-golden-overlay {
+  z-index: 2;
+  opacity: 0.8;
+  background: var(--card-gold-overlay);
+  mix-blend-mode: soft-light;
+}
+
+.about-page__media--card .card-golden-overlay {
+  opacity: 0.72;
+}
+
+.about-page__media img,
+.about-gallery__item img {
+  filter: sepia(0.06) saturate(1.1) contrast(1.03) brightness(0.95);
+  transition: filter var(--transition-luxury), transform var(--transition-luxury);
+}
+
+.about-page__figure:hover img,
+.about-page__team-figure:hover img,
+.about-page__card:hover img,
+.about-gallery__item:hover img {
+  filter: sepia(0.04) saturate(1.14) contrast(1.04) brightness(0.97);
 }
 
 .destination-card__image-wrap::before {

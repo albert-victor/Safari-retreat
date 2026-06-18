@@ -565,14 +565,25 @@
   function scheduleHashScroll(hash) {
     if (!hash || hash === '#') return;
 
-    const run = () => scrollToHash(hash);
+    let done = false;
+    const finish = () => {
+      if (done) return;
+      done = true;
+      scrollToHash(hash);
+      document.documentElement.classList.add('sbr-hash-ready');
+      document.documentElement.classList.remove('sbr-hash-nav');
+    };
 
-    if (document.readyState === 'complete') {
-      run();
+    window.setTimeout(finish, 2500);
+
+    if (document.readyState === 'loading') {
+      document.addEventListener('DOMContentLoaded', () => {
+        requestAnimationFrame(finish);
+      }, { once: true });
       return;
     }
 
-    window.addEventListener('load', run, { once: true });
+    requestAnimationFrame(finish);
   }
 
   function getNavbarScrollOffset() {
@@ -1442,8 +1453,9 @@
       return root.getAttribute('data-theme') === 'light' ? 'light' : 'dark';
     }
 
-    function applyTheme(theme, persist) {
+    function applyTheme(theme, persist, animateBulb) {
       const isLight = theme === 'light';
+      const wasLight = getTheme() === 'light';
       if (isLight) {
         root.setAttribute('data-theme', 'light');
       } else {
@@ -1456,6 +1468,12 @@
           'aria-label',
           isLight ? 'Switch to dark theme' : 'Switch to light theme'
         );
+        if (animateBulb && isLight && !wasLight) {
+          btn.classList.remove('theme-toggle--bulb-on');
+          void btn.offsetWidth;
+          btn.classList.add('theme-toggle--bulb-on');
+          window.setTimeout(() => btn.classList.remove('theme-toggle--bulb-on'), 700);
+        }
       });
 
       if (persist) {
@@ -1476,7 +1494,7 @@
 
     toggles.forEach((btn) => {
       btn.addEventListener('click', () => {
-        applyTheme(getTheme() === 'light' ? 'dark' : 'light', true);
+        applyTheme(getTheme() === 'light' ? 'dark' : 'light', true, true);
       });
     });
   }

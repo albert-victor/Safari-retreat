@@ -41,7 +41,6 @@ MOBILE_SAFARIS = """          <li class="mobile-menu__item mobile-menu__item--de
               <i class="fa-solid fa-chevron-down mobile-menu__dest-chevron" aria-hidden="true"></i>
             </button>
             <div class="mobile-menu__dest-panel" id="mobileSafariPanel">
-              <a href="#safaris" class="mobile-menu__dest-overview">All safari packages</a>
               <ul class="mobile-menu__dest-grid">
                 <li><a href="#safaris-northern">Northern Circuit</a></li>
                 <li><a href="#safaris-southern">Southern Circuit</a></li>

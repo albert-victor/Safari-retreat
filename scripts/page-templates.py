@@ -164,6 +164,9 @@ def nav_html(prefix: str = "../", active: str = "circuits", kenya_active: bool =
     kenya_href = f"{prefix}kenya.html"
     uganda_href = f"{prefix}uganda.html"
     rwanda_href = f"{prefix}rwanda.html"
+    safaris_href = f"{prefix}safaris/index.html" if active in ("safaris", "accommodation") else f"{prefix}index.html#safaris"
+    accommodation_href = f"{prefix}accommodations/luxury-lodges.html" if active == "accommodation" else f"{prefix}index.html#accommodation"
+    circuits_href = f"{prefix}circuits/index.html" if active == "circuits" else f"{prefix}index.html#destinations"
     circuit_nav = build_circuit_nav(circuit_prefix, dest_prefix, kenya_href, uganda_href, rwanda_href, mobile=False)
     mobile_circuit_nav = build_circuit_nav(circuit_prefix, dest_prefix, kenya_href, uganda_href, rwanda_href, mobile=True)
     return f"""  <header class="navbar navbar--solid navbar--scrolled" id="navbar" role="banner">
@@ -176,7 +179,7 @@ def nav_html(prefix: str = "../", active: str = "circuits", kenya_active: bool =
         <ul class="navbar__list">
           <li><a href="{prefix}index.html#home" class="navbar__link">Home</a></li>
           <li class="navbar__item navbar__item--has-dropdown">
-            <a href="{prefix}index.html#destinations" class="navbar__link{circuits_active}">Circuits</a>
+            <a href="{circuits_href}" class="navbar__link{circuits_active}">Circuits</a>
             <ul class="navbar__dropdown" role="menu">
 {circuit_nav}
             </ul>
@@ -184,12 +187,12 @@ def nav_html(prefix: str = "../", active: str = "circuits", kenya_active: bool =
           <li><a href="{prefix}about.html" class="navbar__link{about_active}">About Us</a></li>
           <li><a href="{prefix}index.html#experiences" class="navbar__link">Experiences</a></li>
           <li class="navbar__item navbar__item--has-dropdown">
-            <a href="{prefix}index.html#safaris" class="navbar__link{safaris_active}">Safaris</a>
+            <a href="{safaris_href}" class="navbar__link{safaris_active}">Safaris</a>
             <ul class="navbar__dropdown" role="menu">
 {SAFARI_CATEGORY_NAV.format(prefix=prefix, category_prefix=category_prefix)}
             </ul>
           </li>
-          <li><a href="{prefix}index.html#accommodation" class="navbar__link{accommodation_active}">Accommodation</a></li>
+          <li><a href="{accommodation_href}" class="navbar__link{accommodation_active}">Accommodation</a></li>
           <li><a href="{prefix}index.html#gallery" class="navbar__link">Gallery</a></li>
         </ul>
       </nav>
@@ -245,13 +248,12 @@ def nav_html(prefix: str = "../", active: str = "circuits", kenya_active: bool =
               <i class="fa-solid fa-chevron-down mobile-menu__dest-chevron" aria-hidden="true"></i>
             </button>
             <div class="mobile-menu__dest-panel" id="mobileSafariPanel">
-              <a href="{prefix}safaris/index.html" class="mobile-menu__dest-overview">All safari packages</a>
               <ul class="mobile-menu__dest-grid">
 {MOBILE_SAFARI_CATEGORY_NAV.format(prefix=prefix, category_prefix=category_prefix)}
               </ul>
             </div>
           </li>
-          <li><a href="{prefix}index.html#accommodation" class="mobile-menu__link">Accommodation</a></li>
+          <li><a href="{accommodation_href}" class="mobile-menu__link">Accommodation</a></li>
           <li><a href="{prefix}index.html#gallery" class="mobile-menu__link">Gallery</a></li>
         </ul>
       </nav>
@@ -288,9 +290,28 @@ def gtm_body_snippet() -> str:
   <!-- End Google Tag Manager (noscript) -->"""
 
 
-def head_block(title: str, description: str, css_prefix: str) -> str:
+def head_block(title: str, description: str, css_prefix: str, canonical_path: str = "") -> str:
     gtm = gtm_head_snippet()
     gtm_block = f"\n{gtm}" if gtm else ""
+    desc = description[:160]
+    canon = canonical_path.strip()
+    seo = ""
+    if canon:
+        url = f"https://safariandbushretreats.com/{canon.lstrip('/')}"
+        og_img = "https://safariandbushretreats.com/assets/images/serengeti3.jpg"
+        seo = f"""
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="{url}">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="{url}">
+  <meta property="og:title" content="{title}">
+  <meta property="og:description" content="{desc}">
+  <meta property="og:image" content="{og_img}">
+  <meta property="og:site_name" content="Safari and Bush Retreats">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="{title}">
+  <meta name="twitter:description" content="{desc}">
+  <meta name="twitter:image" content="{og_img}">"""
     return f"""  <meta charset="UTF-8">{gtm_block}
   <script>
     (function () {{
@@ -302,9 +323,11 @@ def head_block(title: str, description: str, css_prefix: str) -> str:
   </script>
   <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
   <title>{title}</title>
-  <meta name="description" content="{description[:160]}">
-  <link rel="icon" type="image/png" href="{css_prefix}assets/images/favicon.png">
-  <link rel="apple-touch-icon" href="{css_prefix}assets/images/apple-touch-icon.png">
+  <meta name="description" content="{desc}">{seo}
+  <link rel="icon" type="image/png" sizes="32x32" href="{css_prefix}assets/images/favicon.png">
+  <link rel="icon" type="image/svg+xml" href="{css_prefix}assets/images/favicon.svg">
+  <link rel="apple-touch-icon" sizes="180x180" href="{css_prefix}assets/images/apple-touch-icon.png">
+  <link rel="manifest" href="{css_prefix}site.webmanifest">
   <link rel="stylesheet" href="{css_prefix}vendor/fonts/fonts.css">
   <link rel="stylesheet" href="{css_prefix}vendor/font-awesome/css/all.min.css">
   <link rel="stylesheet" href="{css_prefix}css/style.css">

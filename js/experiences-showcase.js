@@ -8,6 +8,7 @@
   const TAB_ICONS_PER_PAGE = 10;
 
   let experiences = [];
+  let imageManifest = {};
   let activeIndex = 0;
   let autoplayTimer = null;
   let tabPage = 0;
@@ -32,16 +33,58 @@
     return data.experiences || [];
   }
 
-  function buildMedia(exp) {
+  async function fetchImageManifest() {
+    try {
+      const url = new URL('assets/image-manifest.json', document.baseURI).href;
+      const res = await fetch(url, { cache: 'force-cache' });
+      if (!res.ok) return {};
+      return await res.json();
+    } catch (e) {
+      return {};
+    }
+  }
+
+  function manifestEntry(path) {
+    const key = path.replace(/%20/g, ' ');
+    return imageManifest[key] || imageManifest[path] || null;
+  }
+
+  function preloadExperienceImage(exp) {
+    if (!exp || !exp.image) return;
+    const entry = manifestEntry(exp.image);
+    const href = entry?.variants?.[1]?.url || entry?.variants?.[0]?.url || imgPath(exp.image);
+    const link = document.createElement('link');
+    link.rel = 'preload';
+    link.as = 'image';
+    link.href = new URL(href, document.baseURI).href;
+    document.head.appendChild(link);
+  }
+
+  function buildMedia(exp, eager) {
+    const entry = manifestEntry(exp.image);
+    const fallback = imgPath(exp.image);
+    const loading = eager ? 'eager' : 'lazy';
+    const fetchPri = eager ? ' fetchpriority="high"' : '';
+    let imgTag;
+
+    if (entry && entry.srcset) {
+      imgTag = `<picture>
+        <source type="image/webp" srcset="${entry.srcset}" sizes="(max-width: 767px) 100vw, 720px">
+        <img src="${fallback}" alt="${esc(exp.alt || exp.title)}" class="exp-showcase__img" loading="${loading}" decoding="async" width="720" height="540"${fetchPri}>
+      </picture>`;
+    } else {
+      imgTag = `<img src="${fallback}" alt="${esc(exp.alt || exp.title)}" class="exp-showcase__img" loading="${loading}" decoding="async" width="720" height="540"${fetchPri}>`;
+    }
+
     return `
       <div class="exp-showcase__media">
-        <img src="${imgPath(exp.image)}" alt="${esc(exp.alt || exp.title)}" class="exp-showcase__img" loading="lazy" decoding="async" width="720" height="540">
+        ${imgTag}
         <div class="exp-showcase__media-gold" aria-hidden="true"></div>
         <div class="exp-showcase__media-scrim" aria-hidden="true"></div>
       </div>`;
   }
 
-  function buildCardContent(exp) {
+  function buildCardContent(exp, eager) {
     const highlights = (exp.highlights || [])
       .map((h) => `<li><i class="fa-solid fa-star" aria-hidden="true"></i>${esc(h)}</li>`)
       .join('');
@@ -51,7 +94,7 @@
         <p class="exp-showcase__desc">${esc(exp.desc)}</p>
         <ul class="exp-showcase__highlights">${highlights}</ul>
       </div>
-      ${buildMedia(exp)}`;
+      ${buildMedia(exp, eager)}`;
   }
 
   function buildTab(exp, index) {
@@ -98,12 +141,12 @@
     if (!skipTabScroll) scrollActiveTabIntoView(root);
   }
 
-  function renderCard(root, exp, animate) {
+  function renderCard(root, exp, animate, eager) {
     const cardEl = root.querySelector('#expShowcaseCard');
     if (!cardEl || !exp) return;
 
     if (!animate) {
-      cardEl.innerHTML = buildCardContent(exp);
+      cardEl.innerHTML = buildCardContent(exp, !!eager);
       cardEl.classList.remove('exp-showcase__card--leaving', 'exp-showcase__card--entering');
       isAnimating = false;
       return;
@@ -111,7 +154,7 @@
 
     cardEl.classList.add('exp-showcase__card--leaving');
     window.setTimeout(() => {
-      cardEl.innerHTML = buildCardContent(exp);
+      cardEl.innerHTML = buildCardContent(exp, false);
       cardEl.classList.remove('exp-showcase__card--leaving');
       cardEl.classList.add('exp-showcase__card--entering');
       window.setTimeout(() => {
@@ -173,8 +216,11 @@
       scrollActiveTabIntoView(root);
     }
 
-    renderCard(root, experiences[activeIndex], true);
+    renderCard(root, experiences[activeIndex], true, false);
     updateProgress(root);
+
+    const nextExp = experiences[(activeIndex + 1) % experiences.length];
+    preloadExperienceImage(nextExp);
 
     if (userTriggered) resetAutoplay(root);
   }
@@ -229,7 +275,12 @@
     if (!rootEl) return;
 
     try {
-      experiences = await fetchExperiences();
+      const [expData, manifest] = await Promise.all([
+        fetchExperiences(),
+        fetchImageManifest()
+      ]);
+      experiences = expData;
+      imageManifest = manifest;
     } catch (e) {
       console.warn('Experiences data unavailable', e);
       return;
@@ -249,8 +300,9 @@
     }
 
     renderTabs(rootEl, true);
-    renderCard(rootEl, experiences[0], false);
+    renderCard(rootEl, experiences[0], false, true);
     updateProgress(rootEl);
+    preloadExperienceImage(experiences[1] || experiences[0]);
 
     rootEl.querySelector('.exp-showcase__arrow--prev')?.addEventListener('click', () => prev(rootEl));
     rootEl.querySelector('.exp-showcase__arrow--next')?.addEventListener('click', () => {
