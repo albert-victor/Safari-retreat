@@ -325,7 +325,7 @@ def head_block(title: str, description: str, css_prefix: str, canonical_path: st
   <title>{title}</title>
   <meta name="description" content="{desc}">{seo}
   <link rel="icon" type="image/png" sizes="32x32" href="{css_prefix}assets/images/favicon.png">
-  <link rel="icon" type="image/svg+xml" href="{css_prefix}assets/images/logo-mark.svg">
+  <link rel="icon" type="image/png" sizes="48x48" href="{css_prefix}assets/images/apple-touch-icon.png">
   <link rel="apple-touch-icon" sizes="180x180" href="{css_prefix}assets/images/apple-touch-icon.png">
   <link rel="manifest" href="{css_prefix}site.webmanifest">
   <link rel="stylesheet" href="{css_prefix}vendor/fonts/fonts.css">

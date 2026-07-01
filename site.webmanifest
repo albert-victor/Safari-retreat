@@ -8,16 +8,16 @@
   "theme_color": "#C6A15B",
   "icons": [
     {
-      "src": "/assets/images/logo-mark.svg",
-      "sizes": "any",
-      "type": "image/svg+xml",
+      "src": "/assets/images/favicon.png",
+      "sizes": "32x32",
+      "type": "image/png",
       "purpose": "any"
     },
     {
       "src": "/assets/images/apple-touch-icon.png",
-      "sizes": "192x192",
+      "sizes": "180x180",
       "type": "image/png",
-      "purpose": "any"
+      "purpose": "any maskable"
     },
     {
       "src": "/assets/images/apple-touch-icon.png",

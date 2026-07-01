@@ -34,6 +34,22 @@ COPIES = {
     "singita3.jpg": IMAGES / "singita3.jpg",
 }
 
+NEW_ABOUT = ASSETS / "new about"
+ABOUT_NEW_COPIES = {
+    "added1.jpg": ABOUT / "added-1.jpg",
+    "added2.jpg": ABOUT / "added-2.jpg",
+    "added3.jpg": ABOUT / "added-3.jpg",
+    "added4.jpg": ABOUT / "added-4.jpg",
+    "added5.jpg": ABOUT / "added-5.jpg",
+    "added6.jpg": ABOUT / "added-6.jpg",
+    "added7.jpg": ABOUT / "added-7.jpg",
+    "moments.jpg": ABOUT / "moments-1.jpg",
+    "moments2.jpg": ABOUT / "moments-2.jpg",
+    "moments3.jpg": ABOUT / "moments-3.jpg",
+    "moments4.jpg": ABOUT / "moments-4.jpg",
+    "moments6.jpg": ABOUT / "moments-5.jpg",
+}
+
 
 def make_favicon() -> None:
     try:
@@ -44,11 +60,6 @@ def make_favicon() -> None:
     src = IMAGES / "logo-nav.png"
     if not src.exists():
         src = IMAGES / "logo-mark.svg"
-    logo_svg = IMAGES / "logo-mark.svg"
-    favicon_svg = IMAGES / "favicon.svg"
-    if logo_svg.exists():
-        shutil.copy2(logo_svg, favicon_svg)
-        print(f"Synced {favicon_svg.relative_to(ROOT)} from logo-mark.svg")
     if not src.exists():
         print("No logo source for favicon")
         return
@@ -69,6 +80,11 @@ def main() -> None:
         if src.exists() and src.resolve() != dest.resolve():
             shutil.copy2(src, dest)
             print(f"Copied {src_name} -> {dest.relative_to(ROOT)}")
+    for src_name, dest in ABOUT_NEW_COPIES.items():
+        src = NEW_ABOUT / src_name
+        if src.exists() and src.resolve() != dest.resolve():
+            shutil.copy2(src, dest)
+            print(f"Copied new about/{src_name} -> {dest.relative_to(ROOT)}")
     make_favicon()
 
 

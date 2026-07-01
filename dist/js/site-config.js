@@ -14,6 +14,7 @@
     whatsapp: '255768373033',
     whatsappText: "Hello, I'd like to plan a safari with Safari and Bush Retreats.",
     location: 'Tanzania - Nationwide',
+    instagram: 'https://www.instagram.com/safariandbushretreats/',
     footerCredit: 'Tanzania-wide safari experts - real guides, real bush, no middlemen.',
     // FormSubmit.co - works on static hosting (no backend). Confirm email once after first submission.
     formSubmitEndpoint: 'https://formsubmit.co/ajax/info@safariandbushretreats.com'

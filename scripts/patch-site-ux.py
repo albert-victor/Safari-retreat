@@ -14,7 +14,7 @@ OVERVIEW_RE = re.compile(
 )
 
 FAVICON_BLOCK = """  <link rel="icon" type="image/png" sizes="32x32" href="{prefix}assets/images/favicon.png">
-  <link rel="icon" type="image/svg+xml" href="{prefix}assets/images/logo-mark.svg">
+  <link rel="icon" type="image/png" sizes="48x48" href="{prefix}assets/images/apple-touch-icon.png">
   <link rel="apple-touch-icon" sizes="180x180" href="{prefix}assets/images/apple-touch-icon.png">
   <link rel="manifest" href="{manifest}">"""
 

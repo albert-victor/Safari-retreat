@@ -1077,6 +1077,12 @@
       }
     });
 
+    if (cfg.instagram) {
+      document.querySelectorAll('[data-instagram]').forEach((el) => {
+        el.href = cfg.instagram;
+      });
+    }
+
     document.querySelectorAll('[data-contact-phone]').forEach((el) => {
       el.href = 'tel:' + cfg.phoneTel;
       if (el.tagName === 'A' && !el.textContent.trim()) {
