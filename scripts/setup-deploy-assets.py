@@ -43,7 +43,12 @@ def make_favicon() -> None:
         return
     src = IMAGES / "logo-nav.png"
     if not src.exists():
-        src = IMAGES / "favicon.svg"
+        src = IMAGES / "logo-mark.svg"
+    logo_svg = IMAGES / "logo-mark.svg"
+    favicon_svg = IMAGES / "favicon.svg"
+    if logo_svg.exists():
+        shutil.copy2(logo_svg, favicon_svg)
+        print(f"Synced {favicon_svg.relative_to(ROOT)} from logo-mark.svg")
     if not src.exists():
         print("No logo source for favicon")
         return
